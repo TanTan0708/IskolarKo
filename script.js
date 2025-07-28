@@ -167,11 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Form submission
     document.getElementById('scholarshipForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        
-        if (API_KEY === "YOUR_OPENROUTER_API_KEY_HERE") {
-            alert('Please edit the API_KEY variable in the JavaScript code with your actual OpenRouter API key.');
-            return;
-        }
+
         
         if (AI_MODEL === "YOUR_AI_MODEL_HERE") {
             alert('Please edit the AI_MODEL variable in the JavaScript code with your chosen AI model.');
