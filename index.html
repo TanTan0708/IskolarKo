@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IskolarKo - Find Your Perfect Scholarship</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 IskolarKo</h1>
+            <p>Find Your Perfect Scholarship Match in the Philippines</p>
+        </div>
+
+
+
+        <div class="form-section">
+            <form id="scholarshipForm">
+                <div class="form-group">
+                    <label for="educationalLevel">Educational Level *</label>
+                    <select id="educationalLevel" required>
+                        <option value="">Select your educational level</option>
+                        <option value="elementary">Elementary</option>
+                        <option value="junior_high">Junior High School</option>
+                        <option value="senior_high">Senior High School</option>
+                        <option value="college">College</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="school">School *</label>
+                    <div class="autocomplete-container">
+                        <input type="text" id="school" placeholder="Start typing your school name..." required>
+                        <div class="autocomplete-suggestions" id="schoolSuggestions"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">City/Location *</label>
+                    <div class="autocomplete-container">
+                        <input type="text" id="location" placeholder="Start typing your city..." required>
+                        <div class="autocomplete-suggestions" id="locationSuggestions"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Course/Strand *</label>
+                    <div class="autocomplete-container">
+                        <input type="text" id="course" placeholder="Start typing your course or strand..." required>
+                        <div class="autocomplete-suggestions" id="courseSuggestions"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="yearLevel">Year Level *</label>
+                    <select id="yearLevel" required>
+                        <option value="">Select your year level</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="averageGrade">Average Grade *</label>
+                    <select id="averageGrade" required>
+                        <option value="">Select your average grade</option>
+                        <option value="below_85">Below 85</option>
+                        <option value="85_90">85-90</option>
+                        <option value="90_95">90-95</option>
+                        <option value="95_100">95-100</option>
+                        <option value="above_100">Above 100</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="familyIncome">Annual Family Income *</label>
+                    <select id="familyIncome" required>
+                        <option value="">Select your family's annual income</option>
+                        <option value="below_50k">Below ₱50,000</option>
+                        <option value="50k_100k">₱50,000 - ₱100,000</option>
+                        <option value="100k_200k">₱100,000 - ₱200,000</option>
+                        <option value="200k_300k">₱200,000 - ₱300,000</option>
+                        <option value="300k_500k">₱300,000 - ₱500,000</option>
+                        <option value="500k_1m">₱500,000 - ₱1,000,000</option>
+                        <option value="above_1m">Above ₱1,000,000</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    🔍 Find My Scholarships
+                </button>
+            </form>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Searching for the best scholarships for you...</p>
+        </div>
+
+        <div class="results" id="results">
+            <h3>📋 Your Scholarship Recommendations</h3>
+            <div class="results-content" id="resultsContent"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
