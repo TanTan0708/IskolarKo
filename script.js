@@ -219,26 +219,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('submitBtn').disabled = true;
 
         try {
-            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            const response = await fetch('/api/proxy', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${API_KEY}`,
-                    'Content-Type': 'application/json',
-                    'HTTP-Referer': window.location.href,
-                    'X-Title': 'IskolarKo Scholarship Finder'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: AI_MODEL,
-                    messages: [
-                        {
-                            role: 'user',
-                            content: prompt
-                        }
-                    ],
-                    max_tokens: 4000,
-                    temperature: 0.7
+                    model: "mistral-7b",
+                    messages: [{ role: "user", content: userInput }]
                 })
             });
+
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
