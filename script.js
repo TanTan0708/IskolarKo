@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify({
                     model: "mistral-7b",
-                    messages: [{ role: "user", content: userInput }]
+                    messages: [{ role: "user", content: prompt }]
                 })
             });
 
