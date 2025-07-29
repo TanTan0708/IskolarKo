@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: "mistral-7b",
+                    model: AI_MODEL,
                     messages: [{ role: "user", content: prompt }]
                 })
             });
