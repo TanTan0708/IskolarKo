@@ -1,22 +1,30 @@
 export default async function handler(req, res) {
-  const apiKey = process.env.MY_API_KEY; // stored securely on Vercel
+  const apiKey = process.env.MY_API_KEY;
 
-  const userMessage = req.query.message; // or however you're passing data
+  // Use POST body
+  if (req.method === "POST") {
+    const { model, messages } = req.body;
 
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      model: "mistralai/mistral-7b-instruct:free",
-      messages: [
-        { role: "user", content: userMessage }
-      ]
-    })
-  });
+    try {
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model,
+          messages
+        })
+      });
 
-  const data = await response.json();
-  res.status(200).json(data);
+      const data = await response.json();
+      res.status(200).json(data);
+    } catch (error) {
+      console.error("Proxy error:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  } else {
+    res.status(405).json({ error: "Method not allowed" });
+  }
 }
